@@ -4,7 +4,7 @@ import { PieChart, Pie, Tooltip } from 'recharts';
 const GenderPieChart = () => {
     const genderData = [
         {
-            "name": "Man",
+            "name": "Men",
             "value": 200
         },
         {
