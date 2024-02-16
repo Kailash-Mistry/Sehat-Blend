@@ -128,7 +128,7 @@ function Header(props) {
                     <Typography variant="h6"
                         fontFamily={'Roboto'}
                         noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
-                        SehatBlend
+                        Hospital Management System
                     </Typography>
                 </IconButton>
             </AppBar>

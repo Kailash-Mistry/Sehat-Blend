@@ -7,7 +7,7 @@ const UserInfo = () => {
             background: '#fff',
             padding: '1rem',
             marginTop: '1.3rem',
-            borderRadius: '100px',
+            borderRadius: '5px',
             boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.05)',
         }}>
             You have logged in as <strong>Admin</strong>

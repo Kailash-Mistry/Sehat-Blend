@@ -121,7 +121,7 @@ export default function NewHeader() {
         <Box sx={{ display: 'flex', background: '#F6F6F6' }} >
             <CssBaseline />
             <AppBar position="fixed" open={open}>
-                <Toolbar style={{ background: '#78C5F7', color: '#000' }}>
+                <Toolbar style={{ background: '#fff', color: '#000' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -155,7 +155,7 @@ export default function NewHeader() {
                 <DrawerHeader sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                     <Toolbar style={{ color: '#4084EE' }}>
                         <Typography variant="h6" noWrap> SehatBlend </Typography>
-                        {/* <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} /> */}
+                        <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} />
                     </Toolbar>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
@@ -337,7 +337,7 @@ export default function NewHeader() {
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-                    <NavLink to="/login" style={{ textDecoration: 'none', width: '100%', color: '#000' , background: '#FFFFFF'}}>
+                    <NavLink to="/login" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton style={{ borderRadius: '0 40px 40px 0' }}>
                                 <ListItemIcon>

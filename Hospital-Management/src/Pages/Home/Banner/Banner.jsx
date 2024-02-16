@@ -71,11 +71,11 @@ const Banner = () => {
             </div>
             <div>
               <Typography sx={{ fontWeight: '800' }}>452</Typography>
-              <p>Staffs</p>
+              <p>Stuffs</p>
             </div>
           </Box>
           <Typography>
-            12 staffs are on vacation
+            12 stuffs are on vacation
           </Typography>
         </Paper>
 
