@@ -16,7 +16,7 @@ const GenderPieChart = () => {
             "value": 190
         },
         {
-            "name": "Buddah",
+            "name": "Senior-Citizens",
             "value": 140
         },
     ];

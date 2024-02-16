@@ -134,7 +134,7 @@ export default function NewHeader() {
                     <Typography variant="h6"
                         fontFamily={'Roboto'}
                         noWrap component='div' sx={{ width: '90%', display: 'flex', justifyContent: 'center' }}>
-                        Hospital Management System
+                        SehatBlend
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -153,8 +153,8 @@ export default function NewHeader() {
                 open={open}
             >
                 <DrawerHeader sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-                    <Toolbar style={{ color: '#000' }}>
-                        <Typography variant="h6" noWrap> SmartCare </Typography>
+                    <Toolbar style={{ color: '#4084EE' }}>
+                        <Typography variant="h6" noWrap> SehatBlend </Typography>
                         <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} />
                     </Toolbar>
                     <IconButton onClick={handleDrawerClose}>
@@ -197,7 +197,7 @@ export default function NewHeader() {
                         defaultExpandIcon={<div style={{ padding: '.3rem 0', visibility: 'hidden' }}>
                             <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                         </div>}
-                        sx={{ height: 300, flexGrow: 1, maxWidth: 420, overflowY: 'auto' }}
+                        sx={{flexGrow: 1, maxWidth: 420, overflowY: 'auto' }}
                     >
                         <TreeItem nodeId="1" label="Doctors"
                             style={{ color: '#000', background: '#FFFFFF' }}>
@@ -289,7 +289,7 @@ export default function NewHeader() {
                         defaultExpandIcon={<div style={{ padding: '.3rem 0', visibility: 'hidden' }}>
                             <FaUserNurse style={{ color: '#000', fontSize: '1.5rem' }} />
                         </div>}
-                        sx={{ height: 140, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+                        sx={{flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
                     >
                         <TreeItem nodeId="1" label="Patient"
                             style={{ color: '#000', background: '#FFFFFF' }}>
