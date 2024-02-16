@@ -23,6 +23,7 @@ import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
 import ApproveDoctor from "./Pages/Doctors/ApproveDoctor/ApproveDoctor";
 import CardList from "./Components/HospitalCard";
 import { useState } from "react";
+import { Navbar } from "./Components/Navbar";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
       </AuthProvider> */}
       <Router>
         <Routes>
-        <Route path="/" element={<CardList searchQuery={searchQuery} />} />
+        <Route path="/" element={<ParentRoute />} />
           {/* NESTED ROUTING APPLIED */}
           <Route path="/" element={<Dashboard />} >
             <Route path="/home" element={<Home></Home>} />
@@ -63,6 +64,17 @@ function App() {
         <Footer></Footer>
       </Router>
     </div>
+  );
+}
+
+function ParentRoute() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  return (
+    <>
+      <Navbar setSearchQuery={setSearchQuery} />
+      <CardList searchQuery={searchQuery} />
+    </>
   );
 }
 
