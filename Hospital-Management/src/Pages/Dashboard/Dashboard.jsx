@@ -165,7 +165,7 @@ export default function NewHeader() {
                 <Divider />
                 {/* Links for routing */}
                 <List>
-                    <NavLink to="/" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    <NavLink to="/home" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton style={{ borderRadius: '0 40px 40px 0' }}>
                                 <ListItemIcon>
