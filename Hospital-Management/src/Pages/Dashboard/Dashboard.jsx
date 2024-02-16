@@ -17,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { NavLink } from 'react-router-dom';
 import { FaMandalorian, FaRunning, FaUserNurse } from "react-icons/fa";
+import { FaLaptopMedical } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { MdOutlinePersonAddAlt, MdOutlinePersonRemoveAlt1, MdOutlinePersonSearch } from 'react-icons/md';
 import { TbBed } from "react-icons/tb";
@@ -155,7 +156,7 @@ export default function NewHeader() {
                 <DrawerHeader sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                     <Toolbar style={{ color: '#4084EE' }}>
                         <Typography variant="h6" noWrap> SehatBlend </Typography>
-                        <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} />
+                        <FaLaptopMedical style={{ fontSize: '1rem', marginLeft: '10px' }} />
                     </Toolbar>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
