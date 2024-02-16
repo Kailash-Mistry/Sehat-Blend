@@ -31,7 +31,7 @@ const Home = () => {
           </Box>
         </Grid>
       </Grid>
-      <TodaysDoctors></TodaysDoctors>
+      {/* <TodaysDoctors></TodaysDoctors> */}
       {/* <Map></Map> */}
     </div>
   )
