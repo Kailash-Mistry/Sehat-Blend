@@ -35,7 +35,7 @@ function Header(props) {
     const drawer = (
         <Box >
             <Toolbar style={{ backgroundColor: '#11468F', color: '#fff' }}>
-                <Typography variant="h6" noWrap> SmartCare </Typography>
+                <Typography variant="h6" noWrap> SehatBlend </Typography>
                 <FaMandalorian style={{ fontSize: '1.5rem', marginLeft: '20px' }} />
             </Toolbar>
             <Divider />
@@ -170,7 +170,7 @@ function Header(props) {
             >
                 {/* <Toolbar /> */}
                 <Alert severity="info"
-                sx={{marginTop:{xs :'3rem', sm:'3rem',md:'0'}, display:'flex', justifyContent:'center'}}>Welcome — Mahinur Rahman!</Alert>
+                sx={{marginTop:{xs :'3rem', sm:'3rem',md:'0'}, display:'flex', justifyContent:'center'}}>Welcome!</Alert>
             </Box>
         </Box>
     );
