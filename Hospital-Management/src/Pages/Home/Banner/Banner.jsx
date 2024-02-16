@@ -112,7 +112,7 @@ const Banner = () => {
             </div>
             <div>
               <Typography sx={{ fontWeight: '800' }}>120</Typography>
-              <p>Ambulence</p>
+              <p>Ambulance</p>
             </div>
           </Box>
           <Typography>

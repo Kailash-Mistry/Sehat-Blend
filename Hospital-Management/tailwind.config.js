@@ -9,6 +9,9 @@ export default {
       height:{
         '144' : '36rem',
       },
+      height:{
+        '120' : '30rem',
+      },
     },
   },
   plugins: [],
