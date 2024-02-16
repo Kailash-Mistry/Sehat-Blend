@@ -21,9 +21,14 @@ import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
 import Patients from "./Pages/Patients/Patients/Patients";
 import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
 import ApproveDoctor from "./Pages/Doctors/ApproveDoctor/ApproveDoctor";
+import CardList from "./Components/HospitalCard";
+import { useState } from "react";
 
 
 function App() {
+
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <div className="App">
       {/* <AuthProvider>
@@ -31,9 +36,10 @@ function App() {
       </AuthProvider> */}
       <Router>
         <Routes>
+        <Route path="/" element={<CardList searchQuery={searchQuery} />} />
           {/* NESTED ROUTING APPLIED */}
           <Route path="/" element={<Dashboard />} >
-            <Route index element={<Home></Home>} />
+            <Route path="/home" element={<Home></Home>} />
             <Route path="doctors" element={<PatientViewDoctor />} />
             <Route path="addDoctor" element={<AddDoctor />} />
             <Route path="approveDoctor" element={<ApproveDoctor />} />
