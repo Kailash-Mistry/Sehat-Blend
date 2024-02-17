@@ -1,13 +1,13 @@
 export const data = [
     {
         id:1,
-        title:"All India Institute of Medical Sciences",
+        title:"AIIMS",
         open:"5:00",
         close:"10:00",
     },
     {
         id:2,
-        title:"Pt Jawaharlal Nehru Memorial",
+        title:"Pt JNM",
         open:"5:00",
         close:"10:00",
     },
