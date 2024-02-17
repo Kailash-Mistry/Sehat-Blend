@@ -36,22 +36,28 @@ function MyLoginPage({ onLogin }) {
             <div className='h-screen flex w-screen  justify-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...'>
                 {isSignUp ? ( // Render signup page if isSignUp is true
                     <div className='flex'>
-                        <div className='flex items-center justify-center h-120 m-2 rounded-xl mt-10 mb-20'>
+                        <div className='flex-col items-center justify-center h-120 m-2 rounded-xl mt-10 mb-20'>
+                            <div className='flex-col items-center justify-center rounded-xl bg-sky-100 h-20 text-2xl mb-5'>
+                                <p className='p-2 font-bold italic'>SehatBlend - Health in your hands!</p>
+                            </div>
                             <img className="rounded-xl" src={img} alt="" />
                         </div>
-                        <div className='flex-col w-110 m-2 rounded-xl bg-sky-100 mt-10 '>
+                        <div className='flex-col h-110 w-110 m-2 rounded-xl bg-sky-100 mt-10 '>
                             <div className=' mt-10 mb-10 text-xl font-bold text-center'>
                                 <h2>Signup</h2>
                             </div>
                             <div className='flex-col m-4 rounded-xl'>
                                 <div>
-                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <input required className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                    <input required className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input required className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className=' mt-5 font-semibold text-center'>
                                     {/* Call handleSignup and onLogin simultaneously on button click */}
                                     <button className='m-10 h-10 w-44 rounded-2xl bg-blue-800 text-white' onClick={() => { handleSignup(); onLogin(); }}>Signup</button>
+                                </div>
+                                <div className='flex justify-center mt-10'>
+                                    <img className="p-2 h-20" src={Logo1} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -59,7 +65,10 @@ function MyLoginPage({ onLogin }) {
 
                 ) : (
                     <div className='flex'>
-                        <div className='flex items-center justify-center h-120 m-2 rounded-xl mt-10 mb-20'>
+                        <div className='flex-col items-center justify-center h-120 m-2 rounded-xl mt-10 mb-20'>
+                            <div className='flex-col items-center justify-center rounded-xl bg-sky-100 h-20 text-2xl mb-5'>
+                                <p className='p-2 font-bold italic'>SehatBlend - Health in your hands!</p>
+                            </div>
                             <img className="rounded-xl" src={img} alt="" />
                         </div>
                         <div className='flex-col w-110 h-120 m-2 rounded-xl bg-sky-100 mt-10 mb-20'>
@@ -68,8 +77,8 @@ function MyLoginPage({ onLogin }) {
                             </div>
                             <div className='flex-col m-4 rounded-xl'>
                                 <div>
-                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="email" placeholder="Email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
-                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
+                                    <input required className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="email" placeholder="Email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
+                                    <input required className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
                                 </div>
                                 <div className=' mt-5 font-semibold text-center'>
                                     {/* Call handleLogin and onLogin simultaneously on button click */}
