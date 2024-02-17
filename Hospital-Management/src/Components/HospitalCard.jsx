@@ -1,12 +1,12 @@
 import { React, useState } from 'react'
-import { data } from './HospitalData'; // Import the data array
+import { data } from './HospitalData'; 
 import CallLogo from '../assets/call.png';
 import { Navbar } from './Navbar';
 import { Link } from "react-router-dom";
 
 function Card({ id, title, open, close }) {
   return (
-    <Link to="/home" className="card bg-slate-300 w-88 min-w-56 h-120 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-[1px] hover:cursor-pointer" key={id}>
+    <Link to="/home" className="card bg-slate-300 w-88 min-w-56 h-144 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-[1px] hover:cursor-pointer" key={id}>
       <div className="image p-2 w-full h-auto rounded-md overflow-hidden">
         <img className="object-cover rounded-xl" src="https://images.pexels.com/photos/1692693/pexels-photo-1692693.jpeg?auto=compress&cs=tinysrgb&w=600" alt={title} />
       </div>
