@@ -1,37 +1,43 @@
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import './App.css';
-import Home from "./Pages/Home/Home/Home";
-import Footer from "./Pages/Shared/Footer/Footer";
-import Staffs from "./Pages/Staffs/Staffs";
-import Appointment from "./Pages/Appointments/Appointment";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import AddDoctor from "./Pages/Doctors/AddDoctor/AddDoctor";
-import Registration from "./Pages/Login/Registration/Registration";
-import PatientViewDoctor from "./Pages/Doctors/Doctors/PatientViewDoctor";
-import Login from "./Pages/Login/Login";
-import PageNotFound from "./Pages/PageNotFound/PageNotFound";
-import ViewDoctors from "./Pages/Patients/ViewDoctors/ViewDoctors";
-import DeleteDoctor from "./Pages/Doctors/DeleteDoctor/DeleteDoctor";
-import FindDoctor from "./Pages/Doctors/UpdateDoctor/FindDoctor";
-import AddPatient from "./Pages/Patients/AddPatients/AddPatient";
-import Patients from "./Pages/Patients/Patients/Patients";
-import PatientDetails from "./Pages/Patients/PatientsDetails/PatientDetails";
-import ApproveDoctor from "./Pages/Doctors/ApproveDoctor/ApproveDoctor";
-import CardList from "./Components/HospitalCard";
-import { useState } from "react";
-import { Navbar } from "./Components/Navbar";
-
+import Home from './Pages/Home/Home/Home';
+import Footer from './Pages/Shared/Footer/Footer';
+import Staffs from './Pages/Staffs/Staffs';
+import Appointment from './Pages/Appointments/Appointment';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AddDoctor from './Pages/Doctors/AddDoctor/AddDoctor';
+import Registration from './Pages/Login/Registration/Registration';
+import PatientViewDoctor from './Pages/Doctors/Doctors/PatientViewDoctor';
+import Login from './Pages/Login/Login';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import ViewDoctors from './Pages/Patients/ViewDoctors/ViewDoctors';
+import DeleteDoctor from './Pages/Doctors/DeleteDoctor/DeleteDoctor';
+import FindDoctor from './Pages/Doctors/UpdateDoctor/FindDoctor';
+import AddPatient from './Pages/Patients/AddPatients/AddPatient';
+import Patients from './Pages/Patients/Patients/Patients';
+import PatientDetails from './Pages/Patients/PatientsDetails/PatientDetails';
+import ApproveDoctor from './Pages/Doctors/ApproveDoctor/ApproveDoctor';
+import CardList from './Components/HospitalCard';
+import { Navbar } from './Components/Navbar';
+import MyLoginPage from './Pages/Login/MyLoginPage';
 
 function App() {
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  return (
-    <div className="App">
+  const handleSuccessfulLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  // If user is logged in, render the authenticated routes
+  if (isLoggedIn) {
+    return (
+      <div className="App">
       {/* <AuthProvider>
 
       </AuthProvider> */}
@@ -64,7 +70,21 @@ function App() {
         <Footer></Footer>
       </Router>
     </div>
-  );
+    );
+  } else {
+    return (
+      <div className="App">
+        <Router>
+          <Routes>
+            {/* Render MyLoginPage for login */}
+            <Route path="/" element={<MyLoginPage onLogin={handleSuccessfulLogin} />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    );
+  }
 }
 
 function ParentRoute() {
