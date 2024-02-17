@@ -338,7 +338,7 @@ export default function NewHeader() {
                             </ListItemButton>
                         </ListItem>
                     </NavLink>
-                    <NavLink to="/login" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
+                    {/* <NavLink to="/login" style={{ textDecoration: 'none', width: '100%', color: '#000' }}>
                         <ListItem disablePadding>
                             <ListItemButton style={{ borderRadius: '0 40px 40px 0' }}>
                                 <ListItemIcon>
@@ -347,7 +347,7 @@ export default function NewHeader() {
                                 <ListItemText primary="Login" />
                             </ListItemButton>
                         </ListItem>
-                    </NavLink>
+                    </NavLink> */}
 
                 </List>
             </Drawer>
