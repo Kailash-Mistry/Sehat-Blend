@@ -8,11 +8,14 @@ const fileUpload = require("express-fileupload");
 const multer = require("multer");
 const app = express();
 const port = process.env.PORT || 5000;
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const User = require('./models/User');
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(fileUpload());
+app.use(bodyParser.json());
 
 const uri = `mongodb://localhost:27017/health`;
 const client = new MongoClient(uri, {
@@ -21,13 +24,18 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-// console.log(uri)
+mongoose.connect('mongodb://localhost:27017/myapp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
+
 async function run() {
   try {
     await client.connect();
     console.log("connected to db");
 
-    const database = client.db("SmartCare");
+    const database = client.db("SehatBlend");
     const doctorsCollection = database.collection("doctors");
     const AppointmentsCollection = database.collection("Appointments");
 
@@ -36,34 +44,28 @@ async function run() {
       const doctors = await cursor.toArray();
       res.json(doctors);
     });
-    // get all apprved doctors
     app.get("/approvedDoctors", async (req, res) => {
       const cursor = doctorsCollection.find({ approved: "true" });
       const doctors = await cursor.toArray();
       res.json(doctors);
     });
-    // get all pending doctors
     app.get("/pendingDoctors", async (req, res) => {
       const cursor = doctorsCollection.find({ approved: "false" });
       const doctors = await cursor.toArray();
       res.json(doctors);
     });
-    // delete doctor
     app.delete("/doctors/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const result = await doctorsCollection.deleteOne(query);
       res.json(result);
     });
-    // approve doctor
     app.put("/approve/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
-      // make approved true
       const result = doctorsCollection.updateOne(query, { $set: { approved: "true" } });
       res.json(result);
     });
-    // get doctor by email
     app.get("/doctors/:email", async (req, res) => {
       const email = req.params.email;
       const cursor = doctorsCollection.find({ email });
@@ -83,9 +85,7 @@ async function run() {
     });
     
     app.post("/doctors", async (req, res) => {
-      // console.log('files', req.files)
       const doctor = req.body;
-      // add image buffer
       const pic = req.files.image[0];
       const picData = pic.data;
       const encodedPic = picData.toString("base64");
@@ -95,61 +95,46 @@ async function run() {
       res.json(result);
     });
 
-    // get patient by id
     app.get('/patients/:id', async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) }
       const result = await AppointmentsCollection.findOne(query)
       res.json(result);
     })
-    // delete by id 
     app.delete("/patients/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const result = await AppointmentsCollection.deleteOne(query);
       res.json(result);
     });
+    
+    app.post('/api/signup', async (req, res) => {
+      try {
+        const { username, email, password } = req.body;
+        const user = new User({ username, email, password });
+        await user.save();
+        res.status(201).json({ message: 'User created successfully' });
+      } catch (error) {
+        res.status(500).json({ message: 'Error creating user' });
+      }
+    });
+    
+    app.post('/api/login', async (req, res) => {
+      try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email, password });
+        if (user) {
+          res.status(200).json({ message: 'Login successful' });
+        } else {
+          res.status(401).json({ message: 'Invalid credentials' });
+        }
+      } catch (error) {
+        res.status(500).json({ message: 'Error logging in' });
+      }
+    });
 
-
-    // app.put('/doctors/:id', async (req, res) => {
-    //   const id = req.params.id;
-    //   const query = { _id: ObjectId(id) };
-    //   const updateDoc = { $set: req.body };
-    //   const result = await doctorsCollection.updateOne(query, updateDoc);
-    //   res.json(result);
-    // });
-
-    // // User sending to db
-    // app.post("/users", async (req, res) => {
-    //   const user = req.body;
-    //   const result = await usersCollection.insertOne(user);
-    //   console.log(result);
-    //   res.json(result);
-    // });
-
-    // // User upsert function
-    // app.put("/users", async (req, res) => {
-    //   const user = req.body;
-    //   const filter = { email: user.email };
-    //   const options = { upsert: true };
-    //   const updateDoc = { $set: user };
-    //   const result = await usersCollection.updateOne(filter,updateDoc,options);
-    //   res.json(result);
-    // });
-
-    // // isStudent checking API
-    // app.get("/users/:email", async (req, res) => {
-    //   const email = req.params.email;
-    //   const query = { email: email };
-    //   const user = await usersCollection.findOne(query);
-    //   let isStudent = false;
-    //   if (user?.roles === "student") {
-    //     isStudent = true;
-    //   }
-    //   res.json({ student: isStudent });
-    // });
+    
   } finally {
-    //   await client.close();
   }
 }
 run().catch(console.dir);
