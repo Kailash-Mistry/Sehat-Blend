@@ -35,7 +35,7 @@ function MyLoginPage({ onLogin }) {
         <>
             <div className='h-screen flex w-screen  justify-center bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...'>
                 {isSignUp ? ( // Render signup page if isSignUp is true
-                    <div>
+                    <div className='flex'>
                         <div className='flex items-center justify-center h-120 m-2 rounded-xl mt-10 mb-20'>
                             <img className="rounded-xl" src={img} alt="" />
                         </div>
@@ -45,9 +45,9 @@ function MyLoginPage({ onLogin }) {
                             </div>
                             <div className='flex-col m-4 rounded-xl'>
                                 <div>
-                                    <input className='b-10 m-4 h-10 w-80 rounded-md p-2' type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                                    <input className='b-10 m-4 h-10 w-80 rounded-md p-2' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    <input className='b-10 m-4 h-10 w-80 rounded-md p-2' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input className='border-2 border-gray-700 focus:border-blue-500 focus:outline-none m-4 h-10 w-80 rounded-md p-2' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className=' mt-5 font-semibold text-center'>
                                     {/* Call handleSignup and onLogin simultaneously on button click */}
