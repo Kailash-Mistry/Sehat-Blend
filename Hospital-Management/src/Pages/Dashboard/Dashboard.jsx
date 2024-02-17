@@ -239,7 +239,7 @@ export default function NewHeader() {
                                         <ListItemIcon>
                                             <MdOutlinePersonRemoveAlt1 style={{ color: '#000', fontSize: '1.4rem' }} />
                                         </ListItemIcon>
-                                        <ListItemText primary="Delete Doctor" style={{ marginLeft: '-1rem' }} />
+                                        <ListItemText primary="Delete/Update Doctor" style={{ marginLeft: '-1rem' }} />
                                     </ListItemButton>
                                 </ListItem>
                             </NavLink>
